@@ -1,6 +1,6 @@
 # qmk-keymap
 
-[![tests](https://github.com/ianlewis/ergodox_keymap/actions/workflows/pre-submit.units.yml/badge.svg)](https://github.com/ianlewis/ergodox_keymap/actions/workflows/pre-submit.units.yml) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/ergodox_keymap/badge)](https://api.securityscorecards.dev/projects/github.com/ianlewis/ergodox_keymap)
+[![tests](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml/badge.svg)](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/qmk-keymap/badge)](https://api.securityscorecards.dev/projects/github.com/ianlewis/qmk-keymap)
 
 This repository contains my [Quantum Mechanical Keyboard](https://docs.qmk.fm/) keymaps for [ZSA Ergodox EZ](keyboards/ergodox_ez/keymaps/ianlewis_dvorak) and [ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak).
 
