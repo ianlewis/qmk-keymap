@@ -2,9 +2,10 @@
 .git/
 
 # Dependency directories (remove the comment below to include it)
-third_party/
 node_modules/
+.bin/
 .venv/
+.aqua/
 
 # SARIF files
 *.sarif.json
@@ -15,3 +16,6 @@ qmk.ini
 # Firmware binary files.
 *.bin
 *.hex
+
+# QMK firmware
+third_party/qmk_firmware
