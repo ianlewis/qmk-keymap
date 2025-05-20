@@ -1,7 +1,7 @@
 {
-    "userspace_version": "1.1",
-    "build_targets": [
-        ["zsa/moonlander", "ianlewis_dvorak"]
-        ["ergodox_ez", "ianlewis_dvorak"]
-    ]
+  "userspace_version": "1.1",
+  "build_targets": [
+    ["zsa/moonlander", "ianlewis_dvorak"],
+    ["ergodox_ez", "ianlewis_dvorak"]
+  ]
 }

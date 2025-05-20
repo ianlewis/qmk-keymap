@@ -219,7 +219,10 @@ json-format: node_modules/.installed ## Format JSON files.
 				'*.json5' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \
-		./node_modules/.bin/prettier --write --no-error-on-unmatched-pattern $${files}
+		./node_modules/.bin/prettier \
+			--write \
+			--no-error-on-unmatched-pattern \
+			$${files}
 
 .PHONY: md-format
 md-format: node_modules/.installed ## Format Markdown files.
@@ -245,7 +248,7 @@ yaml-format: node_modules/.installed ## Format YAML files.
 				'*.yaml' \
 		); \
 		./node_modules/.bin/prettier \
-			--write
+			--write \
 			--no-error-on-unmatched-pattern \
 			$${files}
 
