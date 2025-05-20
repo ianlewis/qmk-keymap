@@ -21,6 +21,14 @@ rules:
   spelling:
     language: "en"
     skipPatterns:
+      # Names
+      - "QMK"
+      - "ZSA"
+      - "Moonlander"
+      - "/[Kk]eymap/"
+      - "ErgoDox EZ"
+      - "udev" # Linux device manager
+
       - "CHANGELOG"
       - "CODEOWNER"
       - "CLI"

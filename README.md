@@ -1,10 +1,10 @@
-# qmk-keymap
+# `qmk-keymap`
 
 [![tests](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml/badge.svg)](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/qmk-keymap/badge)](https://securityscorecards.dev/viewer/?uri=github.com%2Fianlewis%2Fqmk-keymap)
 
 This repository contains my [Quantum Mechanical Keyboard](https://docs.qmk.fm/)
-keymaps for [ZSA Ergodox EZ](keyboards/ergodox_ez/keymaps/ianlewis_dvorak) and
+keymaps for [ZSA ErgoDox EZ](keyboards/ergodox_ez/keymaps/ianlewis_dvorak) and
 [ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak).
 
 ## Keymap
@@ -16,14 +16,14 @@ currently.
 
 The base layer is based on a Dvorak keyboard layout which corresponds to a U.S.
 English keyboard map in software. Modifiers are located on the edge of the
-keyboard and accessed with the right and left pinky finger.
+keyboard and accessed with the right and left little finger.
 
 ![Base Layer](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak/doc/base.png)
 
 ### Navigation/Media Layer
 
 The media layer includes media keys and navigation keys. It is used by holding
-down the layer key with the right pinky.
+down the layer key with the right little finger.
 
 ![Media Layer](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak/doc/media.png)
 
@@ -33,13 +33,14 @@ The repository requires the Python runtime to be installed. The
 [Makefile](./Makefile) defines various targets.
 
 ```shell
+$ make
 qmk-keymap Makefile
 Usage: make [COMMAND]
 
   help                      Print all Makefile targets (this message).
 Build
-  ergodox_ez-compile        Compile Ergodox EZ firmware
-  ergodox_ez-flash          Flash Ergodox EZ firmware
+  ergodox_ez-compile        Compile ErgoDox EZ firmware
+  ergodox_ez-flash          Flash ErgoDox EZ firmware
   moonlander-compile        Compile ZSA Moonlander firmware
   moonlander-flash          Flash ZSA Moonlander firmware
 Tools
@@ -68,7 +69,7 @@ need to set up Linux [udev
 rules](https://docs.qmk.fm/faq_build#linux-udev-rules) before this will work.
 
 ```shell
-# ZSA Ergodox EZ
+# ZSA ErgoDox EZ
 make ergodox_ez-flash
 
 # ZSA Moonlander

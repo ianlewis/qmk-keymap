@@ -129,9 +129,9 @@ ergodox_ez_base_ianlewis_dvorak.hex: qmk.ini third_party/qmk_firmware $(call rwi
 			--keymap ianlewis_dvorak
 
 .PHONY: ergodox_ez-compile
-ergodox_ez-compile: ergodox_ez_base_ianlewis_dvorak.hex ## Compile Ergodox EZ firmware
+ergodox_ez-compile: ergodox_ez_base_ianlewis_dvorak.hex ## Compile ErgoDox EZ firmware
 
-ergodox_ez-flash: ergodox_ez_base_ianlewis_dvorak.hex ## Flash Ergodox EZ firmware
+ergodox_ez-flash: ergodox_ez_base_ianlewis_dvorak.hex ## Flash ErgoDox EZ firmware
 	@$(REPO_ROOT)/.venv/bin/qmk \
 		--config-file qmk.ini \
 		compile \
