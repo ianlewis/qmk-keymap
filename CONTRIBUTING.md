@@ -77,7 +77,7 @@ development.
 
 #### The Makefile
 
-Most of my repositiories make heavy use of `make` during development. This helps
+Most of my repositories make heavy use of `make` during development. This helps
 with automation of tasks locally on your machine. Type `make` to see a full list
 of `Makefile` targets.
 
@@ -117,7 +117,7 @@ used.
 - [`golangci-lint`](https://github.com/golangci/golangci-lint): For Go.
 - [`markdownlint`](https://github.com/DavidAnson/markdownlint): For markdown.
 - [`yamllint`](https://www.yamllint.com/): For YAML (GitHub Actions workflows,
-  config files etc.)
+  configuration files etc.)
 
 You do not necessarily need to have all installed but you will need to install
 those that you want to run them locally.
