@@ -52,15 +52,14 @@ jobs:
           set -euo pipefail
 
           # Generate the subjects (base64 encoded).
-          cd third_party/qmk_firmware/.build
-          echo "digests=$(sha256sum zsa_ergodox_ez_m32u4_base_dvorak_ianlewis.hex zsa_moonlander_dvorak_ianlewis.bin | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          echo "digests=$(sha256sum ergodox_ez_base_ianlewis_dvorak.hex zsa_moonlander_ianlewis_dvorak.bin | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
       - name: Upload firmware
         uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2.2.1
         with:
           files: |
-            third_party/qmk_firmware/.build/zsa_ergodox_ez_m32u4_base_dvorak_ianlewis.hex
-            third_party/qmk_firmware/.build/zsa_moonlander_dvorak_ianlewis.bin
+            ergodox_ez_base_ianlewis_dvorak.hex
+            zsa_moonlander_ianlewis_dvorak.bin
 
   provenance:
     name: Generate SLSA Provenance
