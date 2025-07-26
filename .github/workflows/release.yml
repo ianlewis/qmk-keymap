@@ -22,6 +22,8 @@ permissions: {}
 
 jobs:
   tests:
+    permissions:
+      contents: read # Needed to check out the repo.
     uses: ./.github/workflows/pull_request.tests.yml
 
   # release
