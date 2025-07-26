@@ -31,6 +31,7 @@ rules:
 
       - "CHANGELOG"
       - "CODEOWNER"
+      - "CLA"
       - "CLI"
       - "CVSS"
       - "DCO"
@@ -50,6 +51,9 @@ rules:
       - "/[Ff]ormatter/"
       - "/[Ll]inter/"
       - "/[Pp]re/"
+      - "/[Rr]ebase/"
+      - "/[Rr]eproducibility/"
+      - "/[Rr]uleset/"
       - "/[Rr]untime/"
       - "/[Ss]exualized/"
       - "/[Ss]ocio-economic/"

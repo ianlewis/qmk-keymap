@@ -1,4 +1,4 @@
-# Copyright 2025 Ian Lewis
+# Copyright 2024 Ian Lewis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,31 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: release
+name: markdownlint
 
 on:
-  release:
-    types: [created]
+  workflow_call:
 
-permissions: {}
+permissions:
+  contents: read
 
 jobs:
-  # release
-  ###############################
-  release:
-    name: Release firmware
+  markdownlint:
+    name: markdownlint
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # Needed to write artifacts to a release.
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - run: make ergodox_ez-compile
-      - run: make moonlander-compile
-      - name: Upload firmware
-        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2.2.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          files: |
-            third_party/qmk_firmware/.build/zsa_ergodox_ez_m32u4_base_dvorak_ianlewis.hex
-            third_party/qmk_firmware/.build/zsa_moonlander_dvorak_ianlewis.bin
+          node-version-file: ".node-version"
+      - run: make markdownlint

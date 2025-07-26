@@ -1,0 +1,48 @@
+# Copyright 2025 Ian Lewis
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: license-headers
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read # Needed to check out the repo.
+
+jobs:
+  # Check license headers
+  ###############################
+  license-headers:
+    name: license-headers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          submodules: true
+          persist-credentials: false
+      - name: Generate license headers
+        run: |
+          git config user.name "Unknown"
+          make license-headers
+      - name: check diff
+        run: |
+          set -euo pipefail
+          if [ "$(GIT_PAGER="cat" git diff --ignore-space-at-eol | wc -l)" -gt "0" ]; then
+              echo "Detected license header changes.  See status below:"
+              echo "::group::git diff"
+              GIT_PAGER="cat" git diff
+              echo "::endgroup::"
+              exit 1
+          fi

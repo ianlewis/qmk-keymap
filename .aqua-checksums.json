@@ -31,6 +31,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-darwin-amd64",
+      "checksum": "64DFB2F6928B543F86734F4C943CCA4726B9D33FA198A450390755E3A6A8C970",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-darwin-arm64",
+      "checksum": "48E1A1F1433351AC7E6D392EECDD5D6FA0E533A6F5F3161ED6E66F26AEDC4C06",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-linux-amd64",
+      "checksum": "1BC59C0274960B8D16B41B96D1ECF57D7C1BD2759EF75D6098D923C6C3845DB2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-linux-arm64",
+      "checksum": "B61656F43EB38258BFAB44D29304BFC239FF8BB262888B8F1DBAA6702A45B0EE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-windows-amd64.exe",
+      "checksum": "15F06471A1D1D56CFC7E7C97AAFF437001197351B463507ECFD325838040BA92",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ianlewis/todos/v0.13.0/todos-windows-arm64.exe",
+      "checksum": "456E06977AE35521447017FF2D15865BB8F55501FA40B3F3963C8582B1CBCCFE",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/jqlang/jq/jq-1.7.1/jq-linux-amd64",
       "checksum": "5942C9B0934E510EE61EB3E30273F1B3FE2590DF93933A93D7C58B81D19C8FF5",
       "algorithm": "sha256"
@@ -53,6 +83,56 @@
     {
       "id": "github_release/github.com/jqlang/jq/jq-1.7.1/jq-windows-amd64.exe",
       "checksum": "7451FBBF37FEFFB9BF262BD97C54F0DA558C63F0748E64152DD87B0A07B6D6AB",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.0/jq-linux-amd64",
+      "checksum": "8926C33326111BCD67A47A970B5A5DB933EF9194AD925994934C639C76A0605C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.0/jq-linux-arm64",
+      "checksum": "1084E6BF5060A463DAF77193888D326C83E56BCFBC18A52E6EAA99DBE82A8B54",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.0/jq-macos-amd64",
+      "checksum": "A594F3740BF570F0DBC43FF102A9034C17719D1BB5B40F0192751234D67F172A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.0/jq-macos-arm64",
+      "checksum": "AAF1EFBB376D6E3EAF61F63807C32C1DF519F5857DFC4F581826FA2DF4B715AE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.0/jq-windows-amd64.exe",
+      "checksum": "B45FCBB27DCB9E9848AC39889A8BF86457B8D9D31E7C56387C6EAB80008FD1F4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-linux-amd64",
+      "checksum": "020468DE7539CE70EF1BCEAF7CDE2E8C4F2CA6C3AFB84642AABC5C97D9FC2A0D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-linux-arm64",
+      "checksum": "6BC62F25981328EDD3CFCFE6FE51B073F2D7E7710D7EF7FCDAC28D4E384FC3D4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-macos-amd64",
+      "checksum": "E80DBE0D2A2597E3C11C404F03337B981D74B4A8504B70586C354B7697A7C27F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-macos-arm64",
+      "checksum": "A9FE3EA2F86DFC72F6728417521EC9067B343277152B114F4E98D8CB0E263603",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-windows-amd64.exe",
+      "checksum": "23CB60A1354EED6BCC8D9B9735E8C7B388CD1FDCB75726B93BC299EF22DD9334",
       "algorithm": "sha256"
     },
     {
@@ -128,6 +208,21 @@
     {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.366.0/registry.yaml",
       "checksum": "2AB10879875CD2393ABEABDF5E6A449030D7CFB7C3C1D29258E72B065008C2A9940CF60782A7D6AE4D24FB2444A65D5405D31E29830DFC72646D6CB1A6D60E51",
+      "algorithm": "sha512"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.374.0/registry.yaml",
+      "checksum": "F6EF8FAE28FDCD869BA071BB763686FA3B117E10F32A414B460924336F83B22B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.377.0/registry.yaml",
+      "checksum": "35E6916821352C8E73A3A0394D86528F44012D1EC08B6CD690CF114CECA4F88F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.381.1/registry.yaml",
+      "checksum": "D836ECD0F1FA3B9F2D850BAE72922CA7DDF8F82B98A78C572762ABB70F8020EC87DF4B4D1F3C1F6A3F519FE134676145B5635104C3B8D8B6545163981E99F1FC",
       "algorithm": "sha512"
     }
   ]

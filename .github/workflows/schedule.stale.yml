@@ -21,6 +21,7 @@ permissions: {}
 
 jobs:
   stale:
+    name: Close stale issues and PRs
     runs-on: ubuntu-latest
     permissions:
       issues: write
