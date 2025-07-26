@@ -41,6 +41,13 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: ".node-version"
+      # NOTE: actions/checkout does not set up local branches
+      - run: |
+          set -euo pipefail
+          for remote_branch in $(git branch -r | grep -v "\->" | grep -v -e "^\s*pull/"); do
+            local_branch=$(echo "${remote_branch}" | sed 's/origin\///')
+            git branch --track "${local_branch}" "${remote_branch}"
+          done
       - env:
           COMMITLINT_FROM_REF: ${{ inputs.from_ref }}
           COMMITLINT_TO_REF: ${{ inputs.to_ref }}
