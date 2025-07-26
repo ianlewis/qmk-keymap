@@ -23,6 +23,7 @@ rules:
     skipPatterns:
       # Names
       - "QMK"
+      - "SLSA"
       - "ZSA"
       - "Moonlander"
       - "/[Kk]eymap/"
