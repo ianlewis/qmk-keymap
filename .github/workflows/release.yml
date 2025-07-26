@@ -24,6 +24,7 @@ jobs:
   tests:
     permissions:
       contents: read # Needed to check out the repo.
+      security-events: write # Needed for zizmor to upload SARIF.
     uses: ./.github/workflows/pull_request.tests.yml
 
   # release
