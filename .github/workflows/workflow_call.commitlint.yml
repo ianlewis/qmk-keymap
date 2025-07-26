@@ -44,7 +44,7 @@ jobs:
       # NOTE: actions/checkout does not set up local branches
       - run: |
           set -euo pipefail
-          for remote_branch in $(git branch -r | grep -v /HEAD); do
+          for remote_branch in $(git branch -r | grep -v "\->" | grep -v -e "^\s*pull/"); do
             local_branch=$(echo "${remote_branch}" | sed 's/origin\///')
             git branch --track "${local_branch}" "${remote_branch}"
           done

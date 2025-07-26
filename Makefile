@@ -301,7 +301,13 @@ commitlint: node_modules/.installed ## Run commitlint linter.
 			commitlint_from=$$(git remote show origin | grep 'HEAD branch' | awk '{print $$NF}'); \
 		fi; \
 		if [ "$${commitlint_to}" == "" ]; then \
-			commitlint_to=HEAD; \
+			# if head is on the commitlint_from branch, then we will lint the \
+			# last commit by default. \
+			current_branch=$$(git rev-parse --abbrev-ref HEAD); \
+			if [ "$${commitlint_from}" == "$${current_branch}" ]; then \
+				commintlint_from="HEAD~1"; \
+			fi; \
+			commitlint_to="HEAD"; \
 		fi; \
 		./node_modules/.bin/commitlint \
 			--config .commitlint.config.mjs \
