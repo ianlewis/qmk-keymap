@@ -1,3 +1,4 @@
+---
 # Copyright 2025 Ian Lewis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,12 +12,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# This is a markdownlint config for issue and pull request templates.
-
-extends: "../.markdownlint.yaml"
-
-# MD041/first-line-heading/first-line-h1 : First line in a file should be a
-# top-level heading :
-# https://github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md041.md
-MD041: false
+#
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+checksum:
+  enabled: true
+  require_checksum: true
+  supported_envs:
+    - all
+registries:
+  - type: standard
+    ref: v4.381.1 # renovate: depName=aquaproj/aqua-registry
+packages:
+  - name: rhysd/actionlint@v1.7.7
+  - name: koalaman/shellcheck@v0.10.0
+  - name: jqlang/jq@jq-1.8.1
+  - name: ianlewis/todos@v0.13.0

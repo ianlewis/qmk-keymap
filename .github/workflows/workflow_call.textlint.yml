@@ -1,5 +1,4 @@
----
-# Copyright 2025 Ian Lewis
+# Copyright 2024 Ian Lewis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,20 +11,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
-# aqua - Declarative CLI Version Manager
-# https://aquaproj.github.io/
-checksum:
-  enabled: true
-  require_checksum: true
-  supported_envs:
-    - all
-registries:
-  - type: standard
-    ref: v4.366.0 # renovate: depName=aquaproj/aqua-registry
-packages:
-  - name: rhysd/actionlint@v1.7.7
-  - name: koalaman/shellcheck@v0.10.0
-  - name: jqlang/jq@jq-1.7.1
-  - name: ianlewis/todos@v0.12.0
+
+name: textlint
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  textlint:
+    name: textlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: ".node-version"
+      - run: make textlint

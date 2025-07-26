@@ -1,13 +1,12 @@
 {
-  "engines": {
-    "node": ">=22.0.0 <23"
-  },
   "devDependencies": {
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "dictionary-en": "4.0.0",
-    "markdownlint-cli": "0.44.0",
-    "prettier": "3.5.3",
-    "renovate": "40.11.2",
-    "textlint": "14.6.0",
+    "markdownlint-cli": "0.45.0",
+    "prettier": "3.6.2",
+    "renovate": "41.17.2",
+    "textlint": "15.1.0",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-spelling": "0.3.0"
   }

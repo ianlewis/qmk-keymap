@@ -12,11 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This is a markdownlint config for issue and pull request templates.
+rules:
+  forbidden-uses:
+    config:
+      allow:
+        # Allow the use of official GitHub Actions
+        - actions/*
+        # Allow the use of official GitHub CodeQL Actions
+        - github/codeql-action/*
 
-extends: "../.markdownlint.yaml"
+        # Allow the use of the todo-issue-reopener action
+        - ianlewis/todo-issue-reopener
 
-# MD041/first-line-heading/first-line-h1 : First line in a file should be a
-# top-level heading :
-# https://github.com/DavidAnson/markdownlint/blob/v0.37.4/doc/md041.md
-MD041: false
+        # Allow the use of the ossf/scorecard-action
+        - ossf/scorecard-action
+
+        # Allow the use of the softprops/actions-gh-release action
+        - softprops/action-gh-release

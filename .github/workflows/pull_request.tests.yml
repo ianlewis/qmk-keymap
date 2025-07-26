@@ -1,0 +1,83 @@
+# Copyright 2024 Ian Lewis
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [main]
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read # Needed to check out the repo.
+
+# NOTE: We use simple job names because these are used in branch rulesets and
+#       are matched by name. This makes the job names an identifier rather than
+#       just a human-readable label.
+
+jobs:
+  # Build
+  ###############################
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - run: make ergodox_ez-compile
+      - run: make moonlander-compile
+
+  # Check license headers
+  ###############################
+  license-headers:
+    uses: ./.github/workflows/workflow_call.license-headers.yml
+
+  # formatting
+  ###############################
+  formatting:
+    uses: ./.github/workflows/workflow_call.formatting.yml
+
+  # linters
+  ###############################
+  actionlint:
+    uses: ./.github/workflows/workflow_call.actionlint.yml
+
+  commitlint:
+    uses: ./.github/workflows/workflow_call.commitlint.yml
+
+  fixme:
+    uses: ./.github/workflows/workflow_call.fixme.yml
+
+  markdownlint:
+    uses: ./.github/workflows/workflow_call.markdownlint.yml
+
+  renovate-config-validator:
+    uses: ./.github/workflows/workflow_call.renovate-config-validator.yml
+
+  textlint:
+    uses: ./.github/workflows/workflow_call.textlint.yml
+
+  yamllint:
+    uses: ./.github/workflows/workflow_call.yamllint.yml
+
+  zizmor:
+    permissions:
+      contents: read
+      security-events: write
+    uses: ./.github/workflows/workflow_call.zizmor.yml

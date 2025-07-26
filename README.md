@@ -54,13 +54,15 @@ Formatting
 Linting
   lint                      Run all linters.
   actionlint                Runs the actionlint linter.
-  zizmor                    Runs the zizmor linter.
+  commitlint                Run commitlint linter.
+  fixme                     Check for outstanding FIXMEs.
   markdownlint              Runs the markdownlint linter.
   renovate-config-validator Validate Renovate configuration.
   textlint                  Runs the textlint linter.
-  todos                     Check for outstanding TODOs.
   yamllint                  Runs the yamllint linter.
+  zizmor                    Runs the zizmor linter.
 Maintenance
+  todos                     Print outstanding TODOs.
   clean                     Delete temporary files.
 ```
 
