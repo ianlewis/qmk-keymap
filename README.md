@@ -1,11 +1,11 @@
 # `qmk-keymap`
 
-[![tests](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml/badge.svg)](https://github.com/ianlewis/qmk-keymap/actions/workflows/pre-submit.units.yml)
+[![tests](https://github.com/ianlewis/qmk-keymap/actions/workflows/pull_request.tests.yml/badge.svg)](https://github.com/ianlewis/qmk-keymap/actions/workflows/pull_request.tests.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/qmk-keymap/badge)](https://securityscorecards.dev/viewer/?uri=github.com%2Fianlewis%2Fqmk-keymap)
 
 This repository contains my [Quantum Mechanical Keyboard](https://docs.qmk.fm/)
 keymaps for [ZSA ErgoDox EZ](keyboards/ergodox_ez/keymaps/ianlewis_dvorak) and
-[ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak).
+[ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak). It is
 
 ## Keymap
 
@@ -29,8 +29,14 @@ down the layer key with the right little finger.
 
 ## Installation
 
-The repository requires the Python runtime to be installed. The
-[Makefile](./Makefile) defines various targets.
+This repository is structured as an [External QMK
+Userspace](https://docs.qmk.fm/newbs_external_userspace). The repository
+requires the Python runtime to be installed. All dependencies including QMK is
+installed locally to the repository in a
+[venv](https://docs.python.org/3/library/venv.html).
+
+The [Makefile](./Makefile) defines various build targets under the "Build"
+subheading.
 
 ```shell
 $ make
