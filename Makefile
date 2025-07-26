@@ -134,9 +134,11 @@ ergodox_ez-compile: ergodox_ez_base_ianlewis_dvorak.hex ## Compile ErgoDox EZ fi
 ergodox_ez-flash: ergodox_ez_base_ianlewis_dvorak.hex ## Flash ErgoDox EZ firmware
 	@$(REPO_ROOT)/.venv/bin/qmk \
 		--config-file qmk.ini \
-		compile \
+		flash \
 			--keyboard ergodox_ez \
-			--keymap ianlewis_dvorak
+			--keymap ianlewis_dvorak \
+			--mcu TEENSY2 \
+			ergodox_ez_base_ianlewis_dvorak.hex
 
 zsa_moonlander_ianlewis_dvorak.bin: qmk.ini third_party/qmk_firmware  $(call rwildcard,keyboards/zsa/moonlander,*.*)
 	@$(REPO_ROOT)/.venv/bin/qmk \
@@ -151,9 +153,10 @@ moonlander-compile: zsa_moonlander_ianlewis_dvorak.bin ## Compile ZSA Moonlander
 moonlander-flash: zsa_moonlander_ianlewis_dvorak.bin ## Flash ZSA Moonlander firmware
 	@$(REPO_ROOT)/.venv/bin/qmk \
 		--config-file qmk.ini \
-		compile \
+		flash \
 			--keyboard zsa/moonlander \
-			--keymap ianlewis_dvorak
+			--keymap ianlewis_dvorak \
+			zsa_moonlander_ianlewis_dvorak.bin
 
 ## Tools
 #####################################################################

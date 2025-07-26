@@ -3,9 +3,9 @@
 [![tests](https://github.com/ianlewis/qmk-keymap/actions/workflows/pull_request.tests.yml/badge.svg)](https://github.com/ianlewis/qmk-keymap/actions/workflows/pull_request.tests.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/qmk-keymap/badge)](https://securityscorecards.dev/viewer/?uri=github.com%2Fianlewis%2Fqmk-keymap)
 
-This repository contains my [Quantum Mechanical Keyboard](https://docs.qmk.fm/)
+This repository contains my [Quantum Mechanical Keyboard](https://qmk.fm/)
 keymaps for [ZSA ErgoDox EZ](keyboards/ergodox_ez/keymaps/ianlewis_dvorak) and
-[ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak). It is
+[ZSA Moonlander](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak).
 
 ## Keymap
 
@@ -28,6 +28,59 @@ down the layer key with the right little finger.
 ![Media Layer](keyboards/zsa/moonlander/keymaps/ianlewis_dvorak/doc/media.png)
 
 ## Installation
+
+The keymap can be installed in two ways. You can either download pre-built
+binaries or build the keymap from source.
+
+### Pre-built binaries
+
+The pre-built binaries are available on GitHub Releases. Download the respective
+binary and flash it to the keyboard using QMK CLI, or [ZSA
+Keymapp](https://www.zsa.io/flash).
+
+1. Download the pre-built binaries and SLSA provenance from the [latest
+   release](https://github.com/ianlewis/qmk-keymap/releases).
+
+    ```shell
+    # ZSA ErgoDox EZ
+    curl -sSLO https://github.com/ianlewis/qmk-keymap/releases/latest/download/ergodox_ez_base_ianlewis_dvorak.hex
+    # ZSA Moonlander
+    curl -sSLO https://github.com/ianlewis/qmk-keymap/releases/latest/download/zsa_moonlander_ianlewis_dvorak.bin
+    # SLSA provenance
+    curl -sSLO https://github.com/ianlewis/qmk-keymap/releases/latest/download/multiple.intoto.jsonl
+    ```
+
+2. Verify the binaries using
+   [`slsa-verifier`](https://github.com/slsa-framework/slsa-verifier).
+
+    ```shell
+    slsa-verifier verify-artifact \
+        ergodox_ez_base_ianlewis_dvorak.hex \
+        zsa_moonlander_ianlewis_dvorak.bin \
+        --provenance-path multiple.intoto.jsonl \
+        --source-uri github.com/ianlewis/qmk-keymap \
+        --source-tag v1.0.0
+    ```
+
+3. Using QMK CLI, you can flash the binary with the following command. You will
+   need to set up Linux [udev rules] before this will work.
+
+    ```shell
+    # ZSA ErgoDox EZ
+    qmk flash \
+        --keyboard ergodox_ez \
+        --keymap ianlewis_dvorak \
+        --mcu TEENSY2 \
+        ergodox_ez_base_ianlewis_dvorak.hex
+
+    # ZSA Moonlander
+    qmk flash
+        --keyboard zsa/moonlander \
+        --keymap ianlewis_dvorak \
+        zsa_moonlander_ianlewis_dvorak.bin
+    ```
+
+### Build from source
 
 This repository is structured as an [External QMK
 Userspace](https://docs.qmk.fm/newbs_external_userspace). The repository
@@ -73,8 +126,7 @@ Maintenance
 ```
 
 The keymaps can be compiled and flashed with the following commands. You will
-need to set up Linux [udev
-rules](https://docs.qmk.fm/faq_build#linux-udev-rules) before this will work.
+need to set up Linux [udev rules] before this will work.
 
 ```shell
 # ZSA ErgoDox EZ
@@ -83,3 +135,5 @@ make ergodox_ez-flash
 # ZSA Moonlander
 make moonlander-flash
 ```
+
+[udev rules]: https://docs.qmk.fm/faq_build#linux-udev-rules
