@@ -23,9 +23,9 @@ checksum:
     - all
 registries:
   - type: standard
-    ref: v4.381.1 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.407.2 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: rhysd/actionlint@v1.7.7
-  - name: koalaman/shellcheck@v0.10.0
+  - name: koalaman/shellcheck@v0.11.0
   - name: jqlang/jq@jq-1.8.1
   - name: ianlewis/todos@v0.13.0
