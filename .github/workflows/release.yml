@@ -39,7 +39,7 @@ jobs:
       digests: ${{ steps.hash.outputs.digests }}
 
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
           persist-credentials: false
 
@@ -55,7 +55,7 @@ jobs:
           echo "digests=$(sha256sum ergodox_ez_base_ianlewis_dvorak.hex zsa_moonlander_ianlewis_dvorak.bin | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
       - name: Upload firmware
-        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
+        uses: softprops/action-gh-release@6da8fa9354ddfdc4aeace5fc48d7f679b5214090 # v2.4.1
         with:
           files: |
             ergodox_ez_base_ianlewis_dvorak.hex
