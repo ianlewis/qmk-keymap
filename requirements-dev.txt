@@ -100,9 +100,9 @@ hjson==3.1.0 \
 pyserial==3.5 \
     --hash=sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb \
     --hash=sha256:c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0
-milc==1.9.1 \
-    --hash=sha256:06013131bc9f0503a2b229345203c7d2d4aa9f2daf14ddaaf2d4fb5bebd78647 \
-    --hash=sha256:d89c9fa85984adca2e49b8f4a3a77bd649df6553c92583be38f55e9a9343a65e
+milc==2.0.0 \
+    --hash=sha256:c9cec7a623d66e40cfa4be8db09f1c1f57026ff5f1e93f9f1a96e8276b936d29 \
+    --hash=sha256:e0436486e6f6fc8dd1eab3c4274e5de00abfcdc4daa8c6f94b7a082d4c6dfa07
 pillow==12.2.0 \
     --hash=sha256:00a2865911330191c0b818c59103b58a5e697cae67042366970a6b6f1b20b7f9 \
     --hash=sha256:01afa7cf67f74f09523699b4e88c73fb55c13346d212a59a2db1f86b0a63e8c5 \
