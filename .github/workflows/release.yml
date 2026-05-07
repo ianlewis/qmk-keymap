@@ -55,7 +55,7 @@ jobs:
           echo "digests=$(sha256sum ergodox_ez_base_ianlewis_dvorak.hex zsa_moonlander_ianlewis_dvorak.bin | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
       - name: Upload firmware
-        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
         with:
           files: |
             ergodox_ez_base_ianlewis_dvorak.hex
