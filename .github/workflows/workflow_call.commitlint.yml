@@ -29,6 +29,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: commitlint-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   commitlint:
     name: commitlint
@@ -36,13 +40,20 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          persist-credentials: false
+          persist-credentials: true # required for `git remote set-head`
           fetch-depth: 0 # Fetch all history for all branches and tags
+
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version-file: ".node-version"
+
       # NOTE: actions/checkout does not set up local branches
       - run: |
+          # Fetch the HEAD ref. This is necessary to get the correct default
+          # branch.
+          git remote set-head origin --auto
+
+          # Create local branches for all remote branches except pull requests.
           set -euo pipefail
           current_branch=$(git rev-parse --abbrev-ref HEAD)
           for remote_branch in $(git branch -r | grep -v "\->" | grep -v -e "^\s*pull/"); do
@@ -52,7 +63,10 @@ jobs:
             fi
             git branch --track "${local_branch}" "${remote_branch}"
           done
-      - env:
+
+      - name: commitlint
+        env:
           COMMITLINT_FROM_REF: ${{ inputs.from_ref }}
           COMMITLINT_TO_REF: ${{ inputs.to_ref }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make commitlint

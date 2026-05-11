@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: actionlint
+name: checkmake
 
 on:
   workflow_call:
@@ -21,19 +21,19 @@ permissions:
   contents: read
 
 concurrency:
-  group: actionlint-${{ github.event.pull_request.number || github.ref }}
+  group: checkmake-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  actionlint:
-    name: actionlint
+  checkmake:
+    name: checkmake
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - name: actionlint
+      - name: checkmake
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: make actionlint
+        run: make checkmake
