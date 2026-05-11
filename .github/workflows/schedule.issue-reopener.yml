@@ -16,22 +16,35 @@ name: "TODO Issue Reopener"
 
 on:
   workflow_dispatch:
+  # push[main] will catch changes to TODOs in code.
+  push:
+    branches: [main]
+  # issues[closed] will catch issues closed manually that contain TODOs.
+  issues:
+    types: [closed]
+  # schedule will periodically reconcile and catch any missed TODOs.
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 1 * *"
 
 permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # NOTE: Allow runs to execute sequentially. This prevents a push event from
+  #       canceling an issues event run when a merge to main closes an issue.
+  cancel-in-progress: false
 
 jobs:
   issue-reopener:
     name: Reopen TODO issues
     runs-on: ubuntu-latest
     permissions:
-      # NOTE: contents: read is necessary for private repositories.
-      contents: read
-      issues: write
+      contents: read # Needed for private repositories.
+      issues: write # Needed to comment on and reopen issues.
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+
       - name: Issue Reopener
         uses: ianlewis/todo-issue-reopener@05ca1b2493e450e1cc464bb25e0fa735ae8e4a00 # v1.7.0

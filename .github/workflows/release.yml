@@ -15,10 +15,15 @@
 name: release
 
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - "v*.*.*" # Semver tags like v1.2.3
 
 permissions: {}
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   tests:
@@ -43,24 +48,32 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: make ergodox_ez-compile
-      - run: make moonlander-compile
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make ergodox_ex-compile moonlander-compile
 
+      # TODO(#91): Migrate to GitHub artifact attestations.
       - name: Generate subject for provenance
         id: hash
         run: |
           set -euo pipefail
-
           # Generate the subjects (base64 encoded).
           echo "digests=$(sha256sum ergodox_ez_base_ianlewis_dvorak.hex zsa_moonlander_ianlewis_dvorak.bin | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
-      - name: Upload firmware
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
-        with:
-          files: |
-            ergodox_ez_base_ianlewis_dvorak.hex
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF#refs/tags/}" \
+            --title "${GITHUB_REF#refs/tags/}" \
+            --notes "Release ${GITHUB_REF#refs/tags/}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --draft \
+            --verify-tag \
+            ergodox_ez_base_ianlewis_dvorak.hex \
             zsa_moonlander_ianlewis_dvorak.bin
 
+  # TODO(#91): Migrate to GitHub artifact attestations.
   provenance:
     name: Generate SLSA Provenance
     needs: [build]
